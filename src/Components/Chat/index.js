@@ -54,14 +54,15 @@ const Chat = () => {
           </ChatContainerHeader>
           <ChatMessages ref={chatRef}>
             {channelRoomMessages?.docs?.map((doc, index) => {
-              const { message, timestamp, user, userImage } = doc?.data();
+              const { message, timestamp, user, useImage } = doc?.data();
+              console.log(doc?.data());
               return (
                 <Message
                   key={index}
                   message={message}
                   user={user}
                   timestamp={timestamp}
-                  userImage={userImage}
+                  userImage={useImage}
                 />
               );
             })}
@@ -86,6 +87,7 @@ const ChatContainerEmpty = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 `;
 const ChatContainer = styled.div`
   flex: 0.7;
