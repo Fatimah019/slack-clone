@@ -34,6 +34,7 @@ const Chat = () => {
     <>
       {!channelDetails && !channelRoomMessages && !channelRoomId ? (
         <ChatContainerEmpty>
+          <h1>Welcome To Slack</h1>
           <h2>Add A Channel Or Join A Channel</h2>
         </ChatContainerEmpty>
       ) : (
