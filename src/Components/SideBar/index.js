@@ -17,20 +17,22 @@ import {
 import SidebarOptions from "./sidebaroptions";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { db } from "../../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase";
 
 export default function SideBar() {
   const [channels] = useCollection(db.collection("channelrooms"));
-
+  const [user] = useAuthState(auth);
   return (
     <SideBarContainer>
       {/* side bar header */}
       <SideBarHeader>
         <SideBarInfo>
           {" "}
-          <h2>Channnel name</h2>
+          <h2>Channel NAME</h2>
           <h3>
             <FiberManualRecord />
-            Fatimah Davies
+            {user.displayName}
           </h3>
         </SideBarInfo>
         <Create />
